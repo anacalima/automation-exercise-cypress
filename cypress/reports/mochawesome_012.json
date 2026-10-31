@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-31T05:49:53.178Z",
+    "end": "2026-10-31T05:50:11.459Z",
+    "duration": 18281,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ab1eec0b-b7fd-440b-a1d3-2d2bae1446d5",
+      "title": "",
+      "fullFile": "cypress/e2e/products.cy.js",
+      "file": "cypress/e2e/products.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "aefe23a3-dbf7-4b5c-8df8-774d8a7ae0db",
+          "title": "Suíte de Testes: Produtos e Navegação",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test Case 8: Verify All Products and product detail page",
+              "fullTitle": "Suíte de Testes: Produtos e Navegação Test Case 8: Verify All Products and product detail page",
+              "timedOut": null,
+              "duration": 7235,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_home.default.productsMenuButton.click();\n_products.default.titleAllProducts.should('contain.text', 'All Products');\n_products.default.productsList.should('be.visible');\n_products.default.viewFirstProductButton.click();\n_products.default.productNameDetail.should('be.visible');\n_products.default.productCategoryDetail.should('be.visible');\n_products.default.productPriceDetail.should('be.visible');\n_products.default.productAvailabilityDetail.should('be.visible');\n_products.default.productConditionDetail.should('be.visible');\n_products.default.productBrandDetail.should('be.visible');",
+              "err": {},
+              "uuid": "c674d567-d8b7-4bab-ad7c-72bc8532035a",
+              "parentUUID": "aefe23a3-dbf7-4b5c-8df8-774d8a7ae0db",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 9: Search Product",
+              "fullTitle": "Suíte de Testes: Produtos e Navegação Test Case 9: Search Product",
+              "timedOut": null,
+              "duration": 7327,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_home.default.productsMenuButton.click();\n_products.default.titleAllProducts.should('contain.text', 'All Products');\n_products.default.pesquisarProduto('Dress');\n_products.default.searchedProductsHeader.should('contain.text', 'Searched Products');\n_products.default.productNames.should('have.length.greaterThan', 0);",
+              "err": {},
+              "uuid": "0524f455-fc56-4e45-8124-52a469161483",
+              "parentUUID": "aefe23a3-dbf7-4b5c-8df8-774d8a7ae0db",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 10: Verify Subscription in home page",
+              "fullTitle": "Suíte de Testes: Produtos e Navegação Test Case 10: Verify Subscription in home page",
+              "timedOut": null,
+              "duration": 3168,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.scrollTo('bottom');\n_home.default.subscriptionEmailInput.type('subscriber_test@mail.com');\n_home.default.subscribeButton.click();\n_home.default.successSubscribeAlert.should('contain.text', 'You have been successfully subscribed!');",
+              "err": {},
+              "uuid": "a3b4003b-82fd-435f-ae4f-2afb3185d4af",
+              "parentUUID": "aefe23a3-dbf7-4b5c-8df8-774d8a7ae0db",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c674d567-d8b7-4bab-ad7c-72bc8532035a",
+            "0524f455-fc56-4e45-8124-52a469161483",
+            "a3b4003b-82fd-435f-ae4f-2afb3185d4af"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17730,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

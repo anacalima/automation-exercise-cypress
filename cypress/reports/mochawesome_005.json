@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-31T05:01:29.526Z",
+    "end": "2026-10-31T05:02:22.836Z",
+    "duration": 53310,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "77b0f289-2035-4c56-a826-fdeff2e5886e",
+      "title": "",
+      "fullFile": "cypress/e2e/checkout.cy.js",
+      "file": "cypress/e2e/checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "baa21f04-a59a-48e6-8516-39e62c90e531",
+          "title": "Suíte de Testes: Checkout e Pedidos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test Case 15: Place Order: Register before Checkout",
+              "fullTitle": "Suíte de Testes: Checkout e Pedidos Test Case 15: Place Order: Register before Checkout",
+              "timedOut": null,
+              "duration": 24900,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const timestamp = new Date().getTime();\nconst email = `test_user_${timestamp}@mail.com`;\n// 1. Registar utilizador\n_home.default.loginMenuButton.click();\n_auth.default.iniciarCadastro('QA Tester', email);\n_auth.default.preencherFormularioCadastro({\n  senha: 'Password123!',\n  nome: 'QA',\n  sobrenome: 'Tester',\n  endereco: 'Rua das Flores, 123',\n  estado: 'SP',\n  cidade: 'São Paulo',\n  cep: '01000-000',\n  telefone: '11999999999'\n});\n_auth.default.continueButton.click();\n// 2. Adicionar produto ao carrinho\n_checkout.default.addToCartButton.click();\n_checkout.default.viewCartModalLink.click();\n// 3. Efetuar Checkout\n_checkout.default.proceedToCheckoutButton.click();\n_checkout.default.textAreaComment.type('Pedido de teste automatizado.');\n_checkout.default.placeOrderButton.click();\n// 4. Pagamento\n_checkout.default.preencherPagamento({\n  nome: 'QA Tester',\n  numero: '4111111111111111',\n  cvc: '123',\n  mes: '12',\n  ano: '2028'\n});\n_checkout.default.successMessage.should('be.visible');\n// 5. Limpeza\n_home.default.deleteAccountButton.click();\n_home.default.accountDeletedHeader.should('be.visible');",
+              "err": {},
+              "uuid": "4d15db90-7c4d-4eef-ac70-1e29f975385a",
+              "parentUUID": "baa21f04-a59a-48e6-8516-39e62c90e531",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 16: Place Order: Login before Checkout",
+              "fullTitle": "Suíte de Testes: Checkout e Pedidos Test Case 16: Place Order: Login before Checkout",
+              "timedOut": null,
+              "duration": 27809,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const timestamp = new Date().getTime();\nconst email = `test_user_${timestamp}@mail.com`;\n// 1. Registar e fazer logout para preparar o teste\n_home.default.loginMenuButton.click();\n_auth.default.iniciarCadastro('QA Tester', email);\n_auth.default.preencherFormularioCadastro({\n  senha: 'Password123!',\n  nome: 'QA',\n  sobrenome: 'Tester',\n  endereco: 'Rua das Flores, 123',\n  estado: 'SP',\n  cidade: 'São Paulo',\n  cep: '01000-000',\n  telefone: '11999999999'\n});\n_auth.default.continueButton.click();\n_home.default.logoutButton.click();\n// 2. Fazer Login antes do Checkout\n_home.default.loginMenuButton.click();\n_auth.default.realizarLogin(email, 'Password123!');\n// 3. Adicionar produto e ir para o Checkout\n_checkout.default.addToCartButton.click();\n_checkout.default.viewCartModalLink.click();\n_checkout.default.proceedToCheckoutButton.click();\n_checkout.default.textAreaComment.type('Pedido de teste automatizado.');\n_checkout.default.placeOrderButton.click();\n// 4. Pagamento\n_checkout.default.preencherPagamento({\n  nome: 'QA Tester',\n  numero: '4111111111111111',\n  cvc: '123',\n  mes: '12',\n  ano: '2028'\n});\n_checkout.default.successMessage.should('be.visible');\n// 5. Limpeza\n_home.default.deleteAccountButton.click();\n_home.default.accountDeletedHeader.should('be.visible');",
+              "err": {},
+              "uuid": "3bfa142a-0e6f-4783-aad9-1138506416d8",
+              "parentUUID": "baa21f04-a59a-48e6-8516-39e62c90e531",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4d15db90-7c4d-4eef-ac70-1e29f975385a",
+            "3bfa142a-0e6f-4783-aad9-1138506416d8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 52709,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

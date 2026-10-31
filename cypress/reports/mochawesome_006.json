@@ -1,0 +1,152 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 1,
+    "pending": 0,
+    "failures": 2,
+    "start": "2026-10-31T05:02:26.029Z",
+    "end": "2026-10-31T05:02:51.904Z",
+    "duration": 25875,
+    "testsRegistered": 3,
+    "passPercent": 33.33333333333333,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1319ecf6-afe2-4ae9-b5e3-38a1dfe685ad",
+      "title": "",
+      "fullFile": "cypress/e2e/products.cy.js",
+      "file": "cypress/e2e/products.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6d127464-b749-4771-8778-54f59432aab9",
+          "title": "Suíte de Testes: Produtos e Navegação",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test Case 8: Verify All Products and product detail page",
+              "fullTitle": "Suíte de Testes: Produtos e Navegação Test Case 8: Verify All Products and product detail page",
+              "timedOut": null,
+              "duration": 11446,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_home.default.productsMenuButton.click();\n_products.default.titleAllProducts.should('contain.text', 'ALL PRODUCTS');\n_products.default.productsList.should('be.visible');\n_products.default.viewFirstProductButton.click();\n_products.default.productNameDetail.should('be.visible');\n_products.default.productCategoryDetail.should('be.visible');\n_products.default.productPriceDetail.should('be.visible');\n_products.default.productAvailabilityDetail.should('be.visible');\n_products.default.productConditionDetail.should('be.visible');\n_products.default.productBrandDetail.should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<h2.title.text-center>' to contain text 'ALL PRODUCTS', but the text was 'All Products'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<h2.title.text-center>' to contain text 'ALL PRODUCTS', but the text was 'All Products'\n    at Context.eval (webpack://automation-exercise-cypress/./cypress/e2e/products.cy.js:11:34)",
+                "diff": "- 'All Products'\n+ 'ALL PRODUCTS'\n"
+              },
+              "uuid": "3afe2cd6-c580-407d-ae48-b392b6f6ed44",
+              "parentUUID": "6d127464-b749-4771-8778-54f59432aab9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 9: Search Product",
+              "fullTitle": "Suíte de Testes: Produtos e Navegação Test Case 9: Search Product",
+              "timedOut": null,
+              "duration": 10282,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_home.default.productsMenuButton.click();\n_products.default.titleAllProducts.should('contain.text', 'ALL PRODUCTS');\n_products.default.pesquisarProduto('Dress');\n_products.default.searchedProductsHeader.should('contain.text', 'SEARCHED PRODUCTS');\n_products.default.productNames.each($el => {\n  cy.wrap($el).invoke('text').then(text => {\n    expect(text.toLowerCase()).to.include('dress');\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<h2.title.text-center>' to contain text 'ALL PRODUCTS', but the text was 'All Products'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<h2.title.text-center>' to contain text 'ALL PRODUCTS', but the text was 'All Products'\n    at Context.eval (webpack://automation-exercise-cypress/./cypress/e2e/products.cy.js:26:34)",
+                "diff": "- 'All Products'\n+ 'ALL PRODUCTS'\n"
+              },
+              "uuid": "c27c764d-5407-4ee5-b73a-33264febd83d",
+              "parentUUID": "6d127464-b749-4771-8778-54f59432aab9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 10: Verify Subscription in home page",
+              "fullTitle": "Suíte de Testes: Produtos e Navegação Test Case 10: Verify Subscription in home page",
+              "timedOut": null,
+              "duration": 3741,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.scrollTo('bottom');\n_home.default.subscriptionEmailInput.type('subscriber_test@mail.com');\n_home.default.subscribeButton.click();\n_home.default.successSubscribeAlert.should('contain.text', 'You have been successfully subscribed!');",
+              "err": {},
+              "uuid": "4232a233-16fa-41e3-832a-a48c821ba6d5",
+              "parentUUID": "6d127464-b749-4771-8778-54f59432aab9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4232a233-16fa-41e3-832a-a48c821ba6d5"
+          ],
+          "failures": [
+            "3afe2cd6-c580-407d-ae48-b392b6f6ed44",
+            "c27c764d-5407-4ee5-b73a-33264febd83d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 25469,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

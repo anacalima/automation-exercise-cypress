@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-31T05:00:20.798Z",
+    "end": "2026-10-31T05:01:26.342Z",
+    "duration": 65544,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "91bb2860-6e9f-4960-bd9d-6d2c534eab65",
+      "title": "",
+      "fullFile": "cypress/e2e/auth.cy.js",
+      "file": "cypress/e2e/auth.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c6f7fda3-0250-4c87-acbb-67a67cf90435",
+          "title": "Suíte de Testes: Autenticação e Usuário",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test Case 1: Register User",
+              "fullTitle": "Suíte de Testes: Autenticação e Usuário Test Case 1: Register User",
+              "timedOut": null,
+              "duration": 16745,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const timestamp = new Date().getTime();\nconst email = `test_user_${timestamp}@mail.com`;\n_home.default.loginMenuButton.click();\n_auth.default.iniciarCadastro('QA Tester', email);\n_auth.default.preencherFormularioCadastro({\n  senha: 'Password123!',\n  nome: 'QA',\n  sobrenome: 'Tester',\n  endereco: 'Rua das Flores, 123',\n  estado: 'SP',\n  cidade: 'São Paulo',\n  cep: '01000-000',\n  telefone: '11999999999'\n});\n_auth.default.accountCreatedHeader.should('be.visible');\n_auth.default.continueButton.click();\n_home.default.loggedInUserText.should('be.visible');\n_home.default.deleteAccountButton.click();\n_home.default.accountDeletedHeader.should('be.visible');",
+              "err": {},
+              "uuid": "cd5930d0-b341-4073-b94e-325c91a43b38",
+              "parentUUID": "c6f7fda3-0250-4c87-acbb-67a67cf90435",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 2: Login User with correct email and password",
+              "fullTitle": "Suíte de Testes: Autenticação e Usuário Test Case 2: Login User with correct email and password",
+              "timedOut": null,
+              "duration": 17726,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const timestamp = new Date().getTime();\nconst email = `test_user_${timestamp}@mail.com`;\n// Cadastro prévio para efetuar login\n_home.default.loginMenuButton.click();\n_auth.default.iniciarCadastro('User Test', email);\n_auth.default.preencherFormularioCadastro({\n  senha: 'Password123!',\n  nome: 'QA',\n  sobrenome: 'Tester',\n  endereco: 'Rua das Flores, 123',\n  estado: 'SP',\n  cidade: 'São Paulo',\n  cep: '01000-000',\n  telefone: '11999999999'\n});\n_auth.default.continueButton.click();\n_home.default.logoutButton.click();\n// Execução do Test Case 2\n_home.default.loginMenuButton.click();\n_auth.default.realizarLogin(email, 'Password123!');\n_home.default.loggedInUserText.should('be.visible');\n// Limpeza\n_home.default.deleteAccountButton.click();\n_home.default.accountDeletedHeader.should('be.visible');",
+              "err": {},
+              "uuid": "41b9a333-aa04-4847-b320-4c03114d47e0",
+              "parentUUID": "c6f7fda3-0250-4c87-acbb-67a67cf90435",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 3: Login User with incorrect email and password",
+              "fullTitle": "Suíte de Testes: Autenticação e Usuário Test Case 3: Login User with incorrect email and password",
+              "timedOut": null,
+              "duration": 3926,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_home.default.loginMenuButton.click();\n_auth.default.realizarLogin('incorreto@mail.com', 'senhaErrada123');\n_auth.default.loginErrorMessage.should('contain.text', 'Your email or password is incorrect!');",
+              "err": {},
+              "uuid": "645e9bbe-363c-413d-9272-47b632c084ca",
+              "parentUUID": "c6f7fda3-0250-4c87-acbb-67a67cf90435",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 4: Logout User",
+              "fullTitle": "Suíte de Testes: Autenticação e Usuário Test Case 4: Logout User",
+              "timedOut": null,
+              "duration": 12120,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const timestamp = new Date().getTime();\nconst email = `test_user_${timestamp}@mail.com`;\n_home.default.loginMenuButton.click();\n_auth.default.iniciarCadastro('User Test', email);\n_auth.default.preencherFormularioCadastro({\n  senha: 'Password123!',\n  nome: 'QA',\n  sobrenome: 'Tester',\n  endereco: 'Rua das Flores, 123',\n  estado: 'SP',\n  cidade: 'São Paulo',\n  cep: '01000-000',\n  telefone: '11999999999'\n});\n_auth.default.continueButton.click();\n_home.default.logoutButton.click();\ncy.url().should('include', '/login');",
+              "err": {},
+              "uuid": "2289881c-95b9-4826-b7aa-b148c0be5a64",
+              "parentUUID": "c6f7fda3-0250-4c87-acbb-67a67cf90435",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 5: Register User with existing email",
+              "fullTitle": "Suíte de Testes: Autenticação e Usuário Test Case 5: Register User with existing email",
+              "timedOut": null,
+              "duration": 13952,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const timestamp = new Date().getTime();\nconst email = `test_user_${timestamp}@mail.com`;\n// Cria o utilizador uma primeira vez\n_home.default.loginMenuButton.click();\n_auth.default.iniciarCadastro('User Test', email);\n_auth.default.preencherFormularioCadastro({\n  senha: 'Password123!',\n  nome: 'QA',\n  sobrenome: 'Tester',\n  endereco: 'Rua das Flores, 123',\n  estado: 'SP',\n  cidade: 'São Paulo',\n  cep: '01000-000',\n  telefone: '11999999999'\n});\n_auth.default.continueButton.click();\n_home.default.logoutButton.click();\n// Tenta registar novamente com o mesmo e-mail\n_home.default.loginMenuButton.click();\n_auth.default.iniciarCadastro('User Duplicate', email);\n_auth.default.signupErrorMessage.should('contain.text', 'Email Address already exist!');",
+              "err": {},
+              "uuid": "35b9d8ae-8bd2-4792-963f-e6f9eb628878",
+              "parentUUID": "c6f7fda3-0250-4c87-acbb-67a67cf90435",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cd5930d0-b341-4073-b94e-325c91a43b38",
+            "41b9a333-aa04-4847-b320-4c03114d47e0",
+            "645e9bbe-363c-413d-9272-47b632c084ca",
+            "2289881c-95b9-4826-b7aa-b148c0be5a64",
+            "35b9d8ae-8bd2-4792-963f-e6f9eb628878"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 64469,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

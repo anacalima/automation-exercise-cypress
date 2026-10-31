@@ -1,0 +1,132 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2026-10-31T04:54:13.698Z",
+    "end": "2026-10-31T04:55:07.585Z",
+    "duration": 53887,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "68181833-07d0-400c-abdb-4010c403f959",
+      "title": "",
+      "fullFile": "cypress/e2e/checkout.cy.js",
+      "file": "cypress/e2e/checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b5fa3e68-2460-4f36-8501-e5e31b3737c8",
+          "title": "Suíte de Testes: Checkout e Pedidos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test Case 15: Place Order: Register before Checkout",
+              "fullTitle": "Suíte de Testes: Checkout e Pedidos Test Case 15: Place Order: Register before Checkout",
+              "timedOut": null,
+              "duration": 25468,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const timestamp = new Date().getTime();\nconst email = `test_user_${timestamp}@mail.com`;\n// 1. Registar utilizador\n_home.default.loginMenuButton.click();\n_auth.default.iniciarCadastro('QA Tester', email);\n_auth.default.preencherFormularioCadastro({\n  senha: 'Password123!',\n  nome: 'QA',\n  sobrenome: 'Tester',\n  endereco: 'Rua das Flores, 123',\n  estado: 'SP',\n  cidade: 'São Paulo',\n  cep: '01000-000',\n  telefone: '11999999999'\n});\n_auth.default.continueButton.click();\n// 2. Adicionar produto ao carrinho\n_checkout.default.addToCartButton.click();\n_checkout.default.viewCartModalLink.click();\n// 3. Efetuar Checkout\n_checkout.default.proceedToCheckoutButton.click();\n_checkout.default.textAreaComment.type('Pedido de teste automatizado.');\n_checkout.default.placeOrderButton.click();\n// 4. Pagamento\n_checkout.default.preencherPagamento({\n  nome: 'QA Tester',\n  numero: '4111111111111111',\n  cvc: '123',\n  mes: '12',\n  ano: '2028'\n});\n_checkout.default.successMessage.should('be.visible');\n// 5. Limpeza\n_home.default.deleteAccountButton.click();\n_home.default.accountDeletedHeader.should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `a[href=\"/delete-account\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `a[href=\"/delete-account\"]`, but never found it.\n    at get deleteAccountButton (webpack://automation-exercise-cypress/./cypress/support/pages/home.page.js:6:40)\n    at Context.eval (webpack://automation-exercise-cypress/./cypress/e2e/checkout.cy.js:50:13)",
+                "diff": null
+              },
+              "uuid": "473316e1-438e-4229-81de-312b77c04fcc",
+              "parentUUID": "b5fa3e68-2460-4f36-8501-e5e31b3737c8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 16: Place Order: Login before Checkout",
+              "fullTitle": "Suíte de Testes: Checkout e Pedidos Test Case 16: Place Order: Login before Checkout",
+              "timedOut": null,
+              "duration": 28012,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const timestamp = new Date().getTime();\nconst email = `test_user_${timestamp}@mail.com`;\n// 1. Registar e fazer logout para preparar o teste\n_home.default.loginMenuButton.click();\n_auth.default.iniciarCadastro('QA Tester', email);\n_auth.default.preencherFormularioCadastro({\n  senha: 'Password123!',\n  nome: 'QA',\n  sobrenome: 'Tester',\n  endereco: 'Rua das Flores, 123',\n  estado: 'SP',\n  cidade: 'São Paulo',\n  cep: '01000-000',\n  telefone: '11999999999'\n});\n_auth.default.continueButton.click();\n_home.default.logoutButton.click();\n// 2. Fazer Login antes do Checkout\n_home.default.loginMenuButton.click();\n_auth.default.realizarLogin(email, 'Password123!');\n// 3. Adicionar produto e ir para o Checkout\n_checkout.default.addToCartButton.click();\n_checkout.default.viewCartModalLink.click();\n_checkout.default.proceedToCheckoutButton.click();\n_checkout.default.textAreaComment.type('Pedido de teste automatizado.');\n_checkout.default.placeOrderButton.click();\n// 4. Pagamento\n_checkout.default.preencherPagamento({\n  nome: 'QA Tester',\n  numero: '4111111111111111',\n  cvc: '123',\n  mes: '12',\n  ano: '2028'\n});\n_checkout.default.successMessage.should('be.visible');\n// 5. Limpeza\n_home.default.deleteAccountButton.click();\n_home.default.accountDeletedHeader.should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `a[href=\"/delete-account\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `a[href=\"/delete-account\"]`, but never found it.\n    at get deleteAccountButton (webpack://automation-exercise-cypress/./cypress/support/pages/home.page.js:6:40)\n    at Context.eval (webpack://automation-exercise-cypress/./cypress/e2e/checkout.cy.js:97:13)",
+                "diff": null
+              },
+              "uuid": "d7e86631-f24d-4a1b-bfb3-1674a155985f",
+              "parentUUID": "b5fa3e68-2460-4f36-8501-e5e31b3737c8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "473316e1-438e-4229-81de-312b77c04fcc",
+            "d7e86631-f24d-4a1b-bfb3-1674a155985f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 53480,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
